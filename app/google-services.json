@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "126504770197",
+    "project_id": "syndicate-65016",
+    "storage_bucket": "syndicate-65016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126504770197:android:bca8b72e43ebe8855dd99c",
+        "android_client_info": {
+          "package_name": "com.mobiledev.sdct"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOR3YwzatNYlAXmPvgan3YTpBuXn7_UfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

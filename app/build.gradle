@@ -1,0 +1,66 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
+}
+
+android {
+    namespace 'com.mobiledev.sdct'
+    compileSdk 34
+
+    buildFeatures {
+        dataBinding true
+        buildConfig true
+    }
+
+    defaultConfig {
+        applicationId "com.mobiledev.sdct"
+        minSdk 30
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "String", "MAPS_API_KEY", "\"${MAPS_API_KEY}\""
+        buildConfigField "String", "WEATHER_API_KEY", "\"${WEATHER_API_KEY}\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'kotlin/reflect/reflect.kotlin_builtins'
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.firebase.auth
+    implementation libs.firebase.messaging
+    implementation libs.firebase.firestore
+    implementation libs.firebase.storage
+    implementation libs.recyclerview
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation 'com.google.code.gson:gson:2.8.9'
+}
