@@ -84,7 +84,6 @@ public class SignUpActivity extends AppCompatActivity {
                                         .addOnSuccessListener(aVoid -> {
                                             Log.d(TAG, "User profile created for " + userId);
                                             Toast.makeText(SignUpActivity.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
-                                            // Redirect to login or main activity
                                             startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                                             finish();
                                         })

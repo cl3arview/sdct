@@ -63,40 +63,31 @@ public class TaskManagementActivity extends AppCompatActivity implements TaskAda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_management);
 
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Initialize Firestore
         db = FirebaseFirestore.getInstance();
         tasksRef = db.collection("tasks");
 
-        // Setup views
         editTextTask = findViewById(R.id.editTextTask);
         buttonAddTask = findViewById(R.id.buttonAddTask);
         buttonToggleTasks = findViewById(R.id.buttonToggleTasks);
         recyclerViewTasks = findViewById(R.id.recyclerViewTasks);
         weatherInfo = findViewById(R.id.weatherInfo);
 
-        // Setup RecyclerView
         taskList = new ArrayList<>();
         taskAdapter = new TaskAdapter(taskList, this, viewingCompletedTasks);
         recyclerViewTasks.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewTasks.setAdapter(taskAdapter);
 
-        // Load tasks
         loadTasks(false);  // Load active tasks
 
-        // Add task button click listener
         buttonAddTask.setOnClickListener(view -> addTask());
 
-        // Toggle tasks button click listener
         buttonToggleTasks.setOnClickListener(view -> toggleTasks());
 
-        // Initialize OkHttpClient and ExecutorService
         client = new OkHttpClient();
         executorService = Executors.newSingleThreadExecutor();
 
-        // Load weather information
         loadWeatherInfo();
     }
 

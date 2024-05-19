@@ -38,22 +38,18 @@ public class UserListActivity extends AppCompatActivity implements UserListAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
 
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getCurrentUser().getUid();
 
-        // Initialize Firestore
         db = FirebaseFirestore.getInstance();
         usersRef = db.collection("users");
 
-        // Setup RecyclerView
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
         userList = new ArrayList<>();
         userListAdapter = new UserListAdapter(userList, this);
         recyclerViewUsers.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewUsers.setAdapter(userListAdapter);
 
-        // Load users
         loadUsers();
     }
 

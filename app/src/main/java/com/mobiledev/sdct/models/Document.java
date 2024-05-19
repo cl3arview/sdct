@@ -6,8 +6,7 @@ public class Document {
     private String userId;
 
     public Document() {
-        // No-argument constructor required for Firestore
-    }
+     }
 
     public Document(String name, String url, String userId) {
         this.name = name;

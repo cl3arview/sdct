@@ -46,23 +46,18 @@ public class MessagingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        // Get user ID and name from intent
         userId = getIntent().getStringExtra("userId");
         userName = getIntent().getStringExtra("userName");
 
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        // Initialize Firestore
         db = FirebaseFirestore.getInstance();
         conversationsRef = db.collection("conversations");
 
-        // Setup views
         editTextMessage = findViewById(R.id.editTextMessage);
         buttonSendMessage = findViewById(R.id.buttonSendMessage);
         recyclerViewMessages = findViewById(R.id.recyclerViewMessages);
 
-        // Setup RecyclerView
         messageList = new ArrayList<>();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
@@ -71,14 +66,11 @@ public class MessagingActivity extends AppCompatActivity {
         recyclerViewMessages.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewMessages.setAdapter(messagesAdapter);
 
-        // Generate conversation ID based on user IDs
         if (currentUser != null && userId != null) {
             conversationId = generateConversationId(currentUser.getUid(), userId);
 
-            // Load messages
             loadMessages();
 
-            // Send message button click listener
             buttonSendMessage.setOnClickListener(view -> sendMessage());
         }
     }
@@ -101,10 +93,10 @@ public class MessagingActivity extends AppCompatActivity {
                                 messagesAdapter.addMessage(message);
                                 break;
                             case MODIFIED:
-                                // Handle modified message if needed
+                                // tbd
                                 break;
                             case REMOVED:
-                                // Handle removed message if needed
+                                // tbd
                                 break;
                         }
                     }

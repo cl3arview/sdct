@@ -5,8 +5,7 @@ public class User {
     private String name;
 
     public User() {
-        // No-argument constructor required for Firestore
-    }
+     }
 
     public User(String name, String uid) {
         this.uid = uid;

@@ -10,8 +10,7 @@ public class Task {
     private String userId;
 
     public Task() {
-        // No-argument constructor required for Firestore
-    }
+     }
 
     public Task(String text, long timestamp, boolean completed, String userId) {
         this.text = text;

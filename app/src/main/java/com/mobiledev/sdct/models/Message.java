@@ -7,8 +7,7 @@ public class Message {
     private String senderName;
 
     public Message() {
-        // No-argument constructor required for Firestore
-    }
+     }
 
     public Message(String senderId, String text, long timestamp, String senderName) {
         this.senderId = senderId;

@@ -46,38 +46,30 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        // Get user ID and name from intent
-        userId = getIntent().getStringExtra("userId");
+         userId = getIntent().getStringExtra("userId");
         userName = getIntent().getStringExtra("userName");
 
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+         mAuth = FirebaseAuth.getInstance();
 
-        // Initialize Firestore
-        db = FirebaseFirestore.getInstance();
+         db = FirebaseFirestore.getInstance();
         conversationsRef = db.collection("conversations");
 
-        // Setup views
-        editTextMessage = findViewById(R.id.editTextMessage);
+         editTextMessage = findViewById(R.id.editTextMessage);
         buttonSendMessage = findViewById(R.id.buttonSendMessage);
         recyclerViewMessages = findViewById(R.id.recyclerViewMessages);
 
-        // Setup RecyclerView
-        messageList = new ArrayList<>();
+         messageList = new ArrayList<>();
         messageAdapter = new MessageAdapter(messageList, mAuth.getCurrentUser().getUid());
         recyclerViewMessages.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewMessages.setAdapter(messageAdapter);
 
-        // Generate conversation ID based on user IDs
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null && userId != null) {
             conversationId = generateConversationId(currentUser.getUid(), userId);
 
-            // Load messages
-            loadMessages();
+             loadMessages();
 
-            // Send message button click listener
-            buttonSendMessage.setOnClickListener(view -> sendMessage());
+             buttonSendMessage.setOnClickListener(view -> sendMessage());
         }
     }
 

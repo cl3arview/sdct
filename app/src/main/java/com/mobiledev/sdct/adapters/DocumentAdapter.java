@@ -72,12 +72,12 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.Docume
                                         notifyDataSetChanged();
                                     })
                                     .addOnFailureListener(e -> {
-                                        // Handle failure
+                                        // Handle failure tbd
                                     });
                         }
                     });
         }).addOnFailureListener(e -> {
-            // Handle failure
+            // Handle failure tbd
         });
     }
 
