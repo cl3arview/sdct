@@ -23,6 +23,8 @@ Le SDCT (Syndic de Copropriété Tracker) est une application Android pour la ge
 ## Prérequis
 
 - Android Studio
+- Gradle 8.4 and up
+- Target SDK 34.
 - JDK 8 ou supérieur
 - Projet Firebase avec Firestore, Authentication, et Storage
 - Clés API Google Maps et OpenWeatherMap
