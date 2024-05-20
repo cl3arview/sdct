@@ -18,8 +18,9 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "MAPS_API_KEY", "\"${MAPS_API_KEY}\""
-        buildConfigField "String", "WEATHER_API_KEY", "\"${WEATHER_API_KEY}\""
+        manifestPlaceholders = [MAPS_API_KEY: "${project.properties['MAPS_API_KEY']}"]
+        buildConfigField "String", "WEATHER_API_KEY", "\"${project.properties['WEATHER_API_KEY']}\""
+        print(WEATHER_API_KEY)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
