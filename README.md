@@ -13,7 +13,6 @@
    - [Construire et Exécuter le Projet](#construire-et-exécuter-le-projet)
 4. [Fonctionnalités Principales](#fonctionnalités-principales)
 5. [Utilisation](#utilisation)
-6. [Informations Supplémentaires](#informations-supplémentaires)
 
 ---
 
@@ -47,7 +46,7 @@ cd sdct
 Ajoutez les lignes suivantes à `gradle.properties` :
 
 ```properties
-MAPS_API_KEY=VOTRE_CLE_GOOGLE_MAPS
+manifestPlaceholders = [MAPS_API_KEY: "${project.properties['MAPS_API_KEY']}"]
 WEATHER_API_KEY=VOTRE_CLE_OPENWEATHERMAP
 ```
 
@@ -61,8 +60,8 @@ android {
     }
     defaultConfig {
         ...
-        buildConfigField "String", "MAPS_API_KEY", "\"${MAPS_API_KEY}\""
-        buildConfigField "String", "WEATHER_API_KEY", "\"${WEATHER_API_KEY}\""
+         manifestPlaceholders = [MAPS_API_KEY: "${project.properties['MAPS_API_KEY']}"]
+         buildConfigField "String", "WEATHER_API_KEY", "\"${WEATHER_API_KEY}\""
     }
 }
 ```
